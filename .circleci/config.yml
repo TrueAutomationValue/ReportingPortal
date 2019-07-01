@@ -29,9 +29,8 @@ jobs:
           command: git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
 
       - run:
-          name: NPM Install
-          command: ./ReportingPortal---Frontend npm i
-          
-      - run:
-          name: NPM E2E
-          command: ./ReportingPortal---Frontend npm run e2e
+          name: Run Tests
+          command: |
+            cd /ReportingPortal---Frontend
+            npm i
+            npm run e2e
