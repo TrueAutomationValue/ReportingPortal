@@ -22,7 +22,7 @@ jobs:
           name: Start docker-compose
           command:  |
             set -x
-            docker-compose up
+            docker-compose up -d
           
       - run:
           name: Clone Tests
