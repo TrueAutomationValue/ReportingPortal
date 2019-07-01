@@ -4,8 +4,8 @@ Here is you can find  docker compose that will start your **Reporting Portal**.
 
 You can configure MySQL DB password, port as well as tomcat port using *.env* file.
 
-After you configure everything just click **startup.sh** (or s**tartup.bat**).
+After you configure everything just click **startup.sh** (or **tartup.bat**).
 
-If you need to update Reporting Portal to the latest version just click **update.sh** (or s**update.bat**).
+If you need to update Reporting Portal to the latest version just click **update.sh** (or **update.bat**).
 
-If you need to stop Reporting Portal just click **update.sh** (or s**update.bat**).
+If you need to stop Reporting Portal just click **update.sh** (or **update.bat**).
