@@ -30,8 +30,8 @@ jobs:
 
       - run:
           name: NPM Install
-          command: /ReportingPortal---Frontend npm i
+          command: ./ReportingPortal---Frontend npm i
           
       - run:
           name: NPM E2E
-          command: /ReportingPortal---Frontend npm run e2e
+          command: ./ReportingPortal---Frontend npm run e2e
