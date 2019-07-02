@@ -28,6 +28,9 @@ jobs:
           name: Clone Tests
           command: |
             git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
+            cd ReportingPortal---Frontend
+            git fetch origin
+            git checkout -b develop origin/develop
 
       - run: 
           name: Install chrome
