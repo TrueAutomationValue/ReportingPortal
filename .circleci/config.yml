@@ -26,7 +26,9 @@ jobs:
           
       - run:
           name: Clone Tests
-          command: git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
+          command: |
+            git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
+            git checkout develop
 
       - run: 
           name: Install chrome
@@ -35,7 +37,7 @@ jobs:
             echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
             sudo apt-get update 
             sudo apt-get install google-chrome-stable
-            
+
       - run:
           name: Run Tests
           command: |
