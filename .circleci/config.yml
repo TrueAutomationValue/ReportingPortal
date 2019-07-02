@@ -45,4 +45,4 @@ jobs:
           command: |
             cd ReportingPortal---Frontend
             npm i
-            npm run e2e
+            npm run e2e:headless
