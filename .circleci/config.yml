@@ -23,6 +23,7 @@ jobs:
           command:  |
             set -x
             docker-compose up -d
+            curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:8888/api/authInfo
           
       - run:
           name: Clone Tests
@@ -45,4 +46,4 @@ jobs:
           command: |
             cd ReportingPortal---Frontend
             npm i
-            npm run e2e
+            npm run e2e:headless
