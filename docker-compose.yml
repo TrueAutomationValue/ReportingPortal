@@ -52,3 +52,12 @@ services:
       - ./apps:/app/webapps
     depends_on:
       - tomcat
+
+  test:
+    build: 
+      context: ./test
+      dockerfile: Dockerfile
+    volumes: 
+      - ./allure-results:/app/allure-results
+    depends_on:
+      - update
