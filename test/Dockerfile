@@ -1,6 +1,7 @@
 FROM alpine/git as clone
 WORKDIR /app
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
+RUN cd ReportingPortal---Frontend && git fetch origin && git checkout -b feature/configs-update origin/feature/configs-update
 
 FROM node:10.15.3 as runTests
 WORKDIR /app
