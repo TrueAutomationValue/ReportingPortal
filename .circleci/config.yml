@@ -27,24 +27,9 @@ jobs:
               appropriate/curl --retry 10 --retry-delay 60 --retry-connrefused http://localhost:8080/api/authInfo
           
       - run:
-          name: Clone Tests
+          name: Run tests
           command: |
-            git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
-            cd ReportingPortal---Frontend
-            git fetch origin
-            git checkout -b develop origin/develop
-
-      - run: 
-          name: Install chrome
-          command: | 
-            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update 
-            sudo apt-get install google-chrome-stable
-
-      - run:
-          name: Run Tests
-          command: |
-            cd ReportingPortal---Frontend
-            npm i
-            npm run e2e:headless
+            cd test
+            docker build . -t tests
+            docker run --network container:repo_tomcat_1 \
+              tests
