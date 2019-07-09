@@ -1,7 +1,7 @@
 FROM alpine/git as clone
 WORKDIR /app
-ARG FORNT-BRANCH 
-ENV FORNT-BRANCH=${FORNT-BRANCH:-master}
+ARG FORNT-BRANCH=master
+ENV FORNT-BRANCH=${FORNT-BRANCH}
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
 RUN cd ReportingPortal---Frontend && git fetch origin && git checkout -b ${FORNT-BRANCH} origin/${FORNT-BRANCH}
 
