@@ -1,9 +1,9 @@
 FROM alpine/git as clone
 WORKDIR /app
-ARG FRONT-BRANCH
-ENV FRONT-BRANCH ${FRONTBRANCH:-master}
+ARG FRONTBRANCH
+ENV FRONTBRANCH ${FRONTBRANCH:-master}
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
-RUN cd ReportingPortal---Frontend && git fetch origin && git checkout -b ${FORNTBRANCH} origin/${FORNTBRANCH}
+RUN cd ReportingPortal---Frontend && git fetch origin && if [ ${FRONTBRANCH} != 'master' ]; then git checkout -t origin/${FRONTBRANCH}; fi
 
 FROM node:10.15.3 as runTests
 WORKDIR /app
