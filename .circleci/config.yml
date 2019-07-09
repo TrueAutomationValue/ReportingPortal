@@ -1,3 +1,4 @@
+
 version: 2
 jobs:
   build:
@@ -22,6 +23,7 @@ jobs:
           name: Start docker-compose
           command:  |
             set -x
+            docker-compose build --no-cache update --build-arg BRANCH=${CIRCLE_BRANCH}
             docker-compose up -d
             docker run --network container:repo_tomcat_1 \
               appropriate/curl --retry 10 --retry-delay 60 --retry-connrefused http://localhost:8080/api/authInfo
@@ -30,6 +32,17 @@ jobs:
           name: Run tests
           command: |
             cd test
-            docker build . -t tests
+            docker build . -t tests --build-arg FORNT-BRANCH=${CIRCLE_BRANCH}
             docker run --network container:repo_tomcat_1 \
               tests
+
+workflows:
+  version: 2
+  main:
+    jobs:
+    - build_and_test:
+        filters:
+          branches:
+            only:
+              - develop
+              - master

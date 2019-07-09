@@ -43,9 +43,11 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
+        BRANCH: ${BRANCH}
         DB_USER: root
         DB_PASS: ${DB_PASSWORD}
     environment:
+        BRANCH: ${BRANCH}
         DB_USER: root
         DB_PASS: ${DB_PASSWORD}
     volumes: 
