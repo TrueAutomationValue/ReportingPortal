@@ -1,7 +1,11 @@
 FROM alpine/git as clone
 WORKDIR /app
+ARG BRANCH 
+ENV BRANCH=${BRANCH}
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Backend.git
+RUN cd ReportingPortal---Backend && git fetch origin && git checkout -b ${BRANCH} origin/${BRANCH}
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
+RUN cd ReportingPortal---Frontend && git fetch origin && git checkout -b ${BRANCH} origin/${BRANCH}
 
 FROM maven:3.5-jdk-8-alpine as build-back
 COPY --from=clone /app/ReportingPortal---Backend /app
