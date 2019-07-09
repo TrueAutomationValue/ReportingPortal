@@ -23,7 +23,7 @@ jobs:
           name: Start docker-compose
           command:  |
             set -x
-            docker-compose build --build-arg BRANCH=${CIRCLE_BRANCH}
+            docker-compose build --build-arg BRANCH=${CIRCLE_BRANCH} update
             docker-compose up -d
             docker run --network container:repo_tomcat_1 \
               appropriate/curl --retry 10 --retry-delay 60 --retry-connrefused http://localhost:8080/api/authInfo
