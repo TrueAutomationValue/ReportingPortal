@@ -40,7 +40,7 @@ workflows:
   version: 2
   main:
     jobs:
-    - build_and_test:
+    - build:
         filters:
           branches:
             only:
