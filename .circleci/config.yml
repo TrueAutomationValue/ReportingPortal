@@ -32,7 +32,7 @@ jobs:
           name: Run tests
           command: |
             cd test
-            docker build . -t tests --build-arg FORNT-BRANCH=${CIRCLE_BRANCH}
+            docker build . -t tests --build-arg FRONTBRANCH=${CIRCLE_BRANCH}
             docker run --network container:repo_tomcat_1 \
               tests
 

@@ -1,7 +1,7 @@
 FROM alpine/git as clone
 WORKDIR /app
 ARG BRANCH 
-ENV BRANCH=${BRANCH:-master}
+ENV BRANCH=${BRANCH}
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Backend.git
 RUN cd ReportingPortal---Backend && git fetch origin && git checkout -b ${BRANCH} origin/${BRANCH}
 RUN git clone https://github.com/TrueAutomationValue/ReportingPortal---Frontend.git
