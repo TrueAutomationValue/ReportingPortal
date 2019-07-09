@@ -26,7 +26,7 @@ jobs:
             docker-compose build --build-arg BRANCH=${CIRCLE_BRANCH} update
             docker-compose up -d
             docker run --network container:repo_tomcat_1 \
-              appropriate/curl --retry 10 --retry-delay 60 --retry-connrefused http://localhost:8080/api/authInfo
+              appropriate/curl --retry 10 --retry-delay 60 --retry-connrefused http://tomcat:8080/api/authInfo
           
       - run:
           name: Run tests
